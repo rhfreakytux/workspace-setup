@@ -1,0 +1,12 @@
+- name: Installing the applications 
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+    method: user
+  loop:
+    - org.mozilla.firefox
+    - com.google.Chrome
+    - org.keepassxc.KeePassXC
+    - com.discordapp.Discord
+    - com.visualstudio.code
+    - io.neovim.nvim
