@@ -1,0 +1,23 @@
+---
+- name: Workstation Setup
+  hosts: localhost
+  tasks:
+  - name: Configure DNF
+    ansible.builtin.blockinfile:
+      backup: true
+      block: |
+        install_weak_deps=False
+        defaultyes=True
+        max_parallel_downloads=10
+      path: /etc/dnf/dnf.conf
+      become: True
+
+  - name: Install Packages
+    import_tasks: tasks/install-packages.yml
+    become: True
+
+  - name: Setup Flatpak
+    import_tasks: tasks/setup-flatpak.yml 
+
+  - name: Install Apps through Flatpak
+    import_tasks: tasks/install-apps.yml
