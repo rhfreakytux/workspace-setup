@@ -1,0 +1,18 @@
+- name: Setup GUI
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    install_weak_deps: false
+    state: latest
+  loop:
+  # gui core server/application
+    - xorg-x11-server-Xorg
+    - xorg-x11-xinit
+    - xrandr
+  # utilties
+    - redshift
+    - rofi
+    - kitty
+    - flatpak
+  # development 
+    - golang
+    - rust
