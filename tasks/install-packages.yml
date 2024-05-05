@@ -16,4 +16,6 @@
   # development 
     - golang
     - rust
+    - cargo
+    - rust-doc
     - neovim
