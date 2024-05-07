@@ -1,0 +1,24 @@
+- name: GoLang setup
+  block:
+    - name: Create GOPATH directory
+      ansible.builtin.file:
+        path: "{{ ansible_user_dir }}/.local/go"
+        state: directory
+
+    - name: Add GOPATH env variable
+      ansible.builtin.lineinfile:
+        line: 'export GOPATH=$HOME/.local/bin/go'
+        state: present
+        create: true
+        path: '~/.profile'
+
+    - name: Add .profile
+      ansible.builtin.lineinfile:
+        line: '. ~/.profile'
+        state: present
+        path: "{{ ansible_user_dir }}/.bashrc"
+
+    - name: Reload .bashrc
+      ansible.builtin.shell: 'source ~/.bashrc'
+  when: installed['changed']
+
