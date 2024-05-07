@@ -1,4 +1,4 @@
-- name: Setup GUI
+- name: Instaling required packages
   ansible.builtin.dnf:
     name: "{{ item }}"
     install_weak_deps: false
@@ -13,9 +13,5 @@
     - rofi
     - kitty
     - flatpak
-  # development 
-    - golang
-    - rust
-    - cargo
-    - rust-doc
+    - tmux
     - neovim
