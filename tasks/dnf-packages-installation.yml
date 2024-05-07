@@ -1,7 +1,6 @@
 - name: Instaling required packages
   ansible.builtin.dnf:
     name: "{{ item }}"
-    install_weak_deps: false
     state: latest
   loop:
   # gui core server/application
