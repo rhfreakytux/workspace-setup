@@ -13,11 +13,18 @@
       become: True
 
   - name: Install Packages
-    import_tasks: tasks/install-packages.yml
+    import_tasks: tasks/dnf-packages-installation.yml
     become: True
 
-  - name: Setup Flatpak
-    import_tasks: tasks/setup-flatpak.yml 
+  - name: Install Development Packages
+    import_tasks: tasks/development-setup.yml
 
-  - name: Install Apps through Flatpak
-    import_tasks: tasks/install-apps.yml
+  - name: Setup GO env
+    import_tasks: tasks/go-env-setup.yml
+
+  - name: Setup Flatpak
+    import_tasks: tasks/flatpak-setup.yml
+
+  - name: Install Flatpak Apps
+    import_tasks: tasks/flatpak-apps.yml
+
