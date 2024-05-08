@@ -18,6 +18,7 @@
 
   - name: Install Development Packages
     import_tasks: tasks/development-setup.yml
+    become: True
 
   - name: Setup GO env
     import_tasks: tasks/go-env-setup.yml
