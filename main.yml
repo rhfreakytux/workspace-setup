@@ -10,7 +10,7 @@
         defaultyes=True
         max_parallel_downloads=10
       path: /etc/dnf/dnf.conf
-      become: True
+    become: True
 
   - name: Install Packages
     import_tasks: tasks/dnf-packages-installation.yml
