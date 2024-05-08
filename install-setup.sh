@@ -3,6 +3,7 @@
 #author: rhfreakytux
 
 PARENTDIR=development
+<<<<<<< HEAD
 NAME=ansible
 DIR=/home/$USER/$PARENTDIR/$NAME
 VENV=.activate-ansible
@@ -12,6 +13,12 @@ echo $PASS | sudo -S -E echo $USER 'ALL=(ALL) NOPASSWD: ALL' | \
 sudo -S -E tee -a /etc/sudoers && exit
 
 
+=======
+FOLDERNAME=ansible
+DIR=/home/$USER/$PARENTDIR/$FOLDERNAME
+VENV=.activate-ansible
+
+>>>>>>> a26b6b7 (update: install-setup script)
 echo $PASS | sudo -S -E dnf install git, python3-pip -y
 
 ansible_dev(){
